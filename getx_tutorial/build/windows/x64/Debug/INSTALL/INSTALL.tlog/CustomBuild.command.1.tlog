@@ -1,0 +1,10 @@
+^D:\TUGAS\CODING\SEKOLAH\FLUTTER\GETX_TUTORIAL\BUILD\WINDOWS\CMAKEFILES\AE2B69CDB54C7B11811AA6EF2B0FDABC\INSTALL_FORCE.RULE
+setlocal
+cd .
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

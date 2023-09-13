@@ -1,0 +1,10 @@
+^D:\TUGAS\CODING\SEKOLAH\FLUTTER\GETX_TUTORIAL\BUILD\WINDOWS\CMAKEFILES\AE2B69CDB54C7B11811AA6EF2B0FDABC\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SD:/Tugas/Coding/Sekolah/Flutter/getx_tutorial/windows -BD:/Tugas/Coding/Sekolah/Flutter/getx_tutorial/build/windows --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/Tugas/Coding/Sekolah/Flutter/getx_tutorial/build/windows/getx_tutorial.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

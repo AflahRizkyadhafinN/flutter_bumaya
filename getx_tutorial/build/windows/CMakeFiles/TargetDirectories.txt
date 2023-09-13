@@ -1,0 +1,10 @@
+D:/Tugas/Coding/Sekolah/Flutter/getx_tutorial/build/windows/CMakeFiles/INSTALL.dir
+D:/Tugas/Coding/Sekolah/Flutter/getx_tutorial/build/windows/CMakeFiles/ALL_BUILD.dir
+D:/Tugas/Coding/Sekolah/Flutter/getx_tutorial/build/windows/CMakeFiles/ZERO_CHECK.dir
+D:/Tugas/Coding/Sekolah/Flutter/getx_tutorial/build/windows/flutter/CMakeFiles/flutter_wrapper_plugin.dir
+D:/Tugas/Coding/Sekolah/Flutter/getx_tutorial/build/windows/flutter/CMakeFiles/flutter_wrapper_app.dir
+D:/Tugas/Coding/Sekolah/Flutter/getx_tutorial/build/windows/flutter/CMakeFiles/flutter_assemble.dir
+D:/Tugas/Coding/Sekolah/Flutter/getx_tutorial/build/windows/flutter/CMakeFiles/INSTALL.dir
+D:/Tugas/Coding/Sekolah/Flutter/getx_tutorial/build/windows/runner/CMakeFiles/getx_tutorial.dir
+D:/Tugas/Coding/Sekolah/Flutter/getx_tutorial/build/windows/runner/CMakeFiles/INSTALL.dir
+D:/Tugas/Coding/Sekolah/Flutter/getx_tutorial/build/windows/runner/CMakeFiles/ALL_BUILD.dir
