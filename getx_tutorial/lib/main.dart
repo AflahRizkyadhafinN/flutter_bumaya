@@ -13,10 +13,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      // showPerformanceOverlay: true,
       title: 'Flutter Demo',
-      // home: CekList(),
-      initialRoute: "/homepage",
-      getPages: Routes().router,
+      getPages: router,
     );
   }
 }

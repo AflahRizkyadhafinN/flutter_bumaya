@@ -9,6 +9,7 @@ class MainXYScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(NumberModel());
+    Get.put(SimpanModel());
     RxInt numberX = Get.find<NumberModel>().x;
     RxInt numberY = Get.find<NumberModel>().y;
     RxInt jumlah = 0.obs;

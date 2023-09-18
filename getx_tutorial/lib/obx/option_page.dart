@@ -12,7 +12,7 @@ class OptionPage extends StatelessWidget {
         children: [
           GestureDetector(
             onTap: () {
-              Get.toNamed("/obx_screen");
+              Get.toNamed("/obx/obx_screen");
             },
             child: Container(
               margin: EdgeInsets.all(5),
@@ -31,7 +31,7 @@ class OptionPage extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              Get.toNamed("/get_builder_screen");
+              Get.toNamed("/obx/get_builder_screen");
             },
             child: Container(
               margin: EdgeInsets.all(5),
@@ -50,7 +50,7 @@ class OptionPage extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              Get.toNamed("/main_XY_screen");
+              Get.toNamed("/obx/main_XY_screen");
             },
             child: Container(
               margin: EdgeInsets.all(5),
