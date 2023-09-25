@@ -10,20 +10,34 @@ class SecondScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: SafeArea(
-          child: ListView(
-        children: [
-          for (var i in list)
-            Card(
+          child: ListView.builder(
+        itemCount: list.length,
+        itemBuilder: (context, index) {
+          return Card(
               child: Container(
-                padding: EdgeInsets.all(15),
-                child: Text(
-                  i,
-                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
-                ),
-              ),
-            )
-        ],
-      )),
+            padding: EdgeInsets.all(15),
+            child: Text(
+              list[index],
+              style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+            ),
+          ));
+        },
+      )
+          //     ListView(
+          //   children: [
+          //     for (var i in list)
+          //       Card(
+          //         child: Container(
+          //           padding: EdgeInsets.all(15),
+          //           child: Text(
+          //             i,
+          //             style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+          //           ),
+          //         ),
+          //       )
+          //   ],
+          // ),
+          ),
     );
   }
 }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx_tutorial/sdb/first_screen.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
@@ -112,6 +111,24 @@ class Homepage extends StatelessWidget {
                             children: [
                               Text(
                                 "Dependency\nManagement",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w600),
+                              ),
+                            ]),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {},
+                      child: Container(
+                        decoration: BoxDecoration(color: Colors.yellow[900]),
+                        alignment: Alignment.center,
+                        child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "Nilai Awal GetX",
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 15,

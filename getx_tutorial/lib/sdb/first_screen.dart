@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
-import 'package:getx_tutorial/main.dart';
 import 'package:getx_tutorial/sdb/main_controller.dart';
-import 'package:getx_tutorial/sdb/second_screen.dart';
 
 class FirstScreen extends StatelessWidget {
   const FirstScreen({super.key});
@@ -51,13 +48,6 @@ class FirstScreen extends StatelessWidget {
                           child: Text("List data")),
                     );
                   } else {
-                    // Get.defaultDialog(
-                    //     content: Text("Nama masih kosong"),
-                    //     confirm: ElevatedButton(
-                    //         onPressed: () {
-                    //           Get.back();
-                    //         },
-                    //         child: Text("Ok")));
                     Get.snackbar("Error", "Nama masih kosong",
                         duration: Duration(seconds: 2));
                   }
@@ -98,15 +88,39 @@ class FirstScreen extends StatelessWidget {
                         color: Colors.white,
                         borderRadius:
                             BorderRadius.vertical(top: Radius.circular(20))),
-                    child: TextButton(
-                        onPressed: () {
-                          Get.back();
-                          Get.toNamed("/plusmin");
-                        },
-                        child: Text("Menuju page")),
+                    child: Column(
+                      children: [
+                        TextButton(
+                            onPressed: () {
+                              Get.back();
+                              Get.toNamed("/plusmin");
+                            },
+                            child: Text("+/- page")),
+                        TextButton(
+                            onPressed: () {
+                              Get.back();
+                              Get.toNamed("/sdb/map_screen");
+                            },
+                            child: Text("Map")),
+                      ],
+                    ),
                   ));
                 },
-                child: Text("PlusMin"))
+                child: Text("Other Page")),
+            SizedBox(
+              height: MediaQuery.sizeOf(context).height - 243,
+              child: Obx(
+                () => ListView.builder(
+                  itemCount: mainController.nama.length,
+                  itemBuilder: (context, index) => Card(
+                    child: Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Text(mainController.nama[index]),
+                    ),
+                  ),
+                ),
+              ),
+            )
           ],
         ),
       ),

@@ -4,6 +4,7 @@ import 'package:getx_tutorial/obx/get_builder.dart';
 import 'package:getx_tutorial/obx/obx.dart';
 import 'package:getx_tutorial/obx/option_page.dart';
 import 'package:getx_tutorial/obx/sumxy/mainxy.dart';
+import 'package:getx_tutorial/sdb/map.dart';
 import 'package:getx_tutorial/sdb/plusmin.dart';
 import 'package:getx_tutorial/sdb/first_screen.dart';
 import 'package:getx_tutorial/sdb/second_screen.dart';
@@ -21,4 +22,5 @@ List<GetPage> router = [
   //sdb page
   GetPage(name: '/sdb', page: () => FirstScreen()),
   GetPage(name: '/sdb/second_screen', page: () => SecondScreen()),
+  GetPage(name: '/sdb/map_screen', page: () => MapScreen()),
 ];
