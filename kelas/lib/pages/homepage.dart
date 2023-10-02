@@ -14,9 +14,10 @@ class HomepageScreen extends StatelessWidget {
 
     RxInt jumlah = 0.obs;
     RxBool isOpen = true.obs;
+    int jumlahSiswa = 35;
 
     void switchChange() {
-      jumlah < 35 ? isOpen.value = true : isOpen.value = false;
+      jumlah < jumlahSiswa ? isOpen.value = true : isOpen.value = false;
     }
 
     return Scaffold(
@@ -25,7 +26,7 @@ class HomepageScreen extends StatelessWidget {
         () => ListView(
           children: [
             HomeBox(
-                title: "XII RPL 2",
+                title: "${mainController.kelas}",
                 color: Colors.amber[300],
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
