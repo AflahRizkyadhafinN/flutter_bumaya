@@ -14,6 +14,7 @@ class MainApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       getPages: router,
+      // home: Cek(),
     );
   }
 }

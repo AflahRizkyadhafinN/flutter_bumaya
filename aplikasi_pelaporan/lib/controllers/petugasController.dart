@@ -2,25 +2,25 @@ import 'dart:convert';
 
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
-import '../models/masyarakat.dart';
+import '../models/petugas.dart';
 
 const uri = "http://localhost:5000";
 
-class MasyarakatController extends GetxController {
+class PetugasController extends GetxController {
   List list = [].obs;
   @override
   Future<void> onInit() async {
     super.onInit();
-    getMasyarakat();
+    getPetugas();
   }
 
-  Future<void> getMasyarakat() async {
+  Future<void> getPetugas() async {
     try {
-      final response = await http.get(Uri.parse("$uri/masyarakat"));
+      final response = await http.get(Uri.parse("$uri/petugas"));
       final jsonData = jsonDecode(response.body);
-      List<Masyarakat> futureList = [];
+      List<Petugas> futureList = [];
       for (var data in jsonData) {
-        futureList.add(Masyarakat.fromJson(data));
+        futureList.add(Petugas.fromJson(data));
       }
       list.assignAll(futureList);
       print(list);
@@ -29,20 +29,20 @@ class MasyarakatController extends GetxController {
     }
   }
 
-  Future<http.Response> postMasyarakat(String nik, String nama, String username,
-      String password, String telp) async {
+  Future<http.Response> postPetugas(String nama, String username,
+      String password, String telp, String level) async {
     try {
       final request = await http.post(
-        Uri.parse("$uri/masyarakat"),
+        Uri.parse("$uri/petugas"),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
         },
         body: jsonEncode({
-          "nama": nama,
-          "username": username,
-          "password": password,
-          "nik": nik,
-          "telp": telp
+          'nama': nama,
+          'username': username,
+          'password': password,
+          'telp': telp,
+          'level': level,
         }),
       );
       return request;
@@ -51,10 +51,10 @@ class MasyarakatController extends GetxController {
     }
   }
 
-  Future<http.Response> updateMasyarakat(
-      String nik, String nama, String username, String telp) async {
+  Future<http.Response> updatePetugas(int idPetugas, String nama,
+      String username, String telp, String level) async {
     try {
-      final response = await http.patch(Uri.parse("$uri/masyarakat/$nik"),
+      final response = await http.patch(Uri.parse("$uri/petugas/$idPetugas"),
           headers: <String, String>{
             'Content-Type': 'application/json; charset=UTF-8',
           },
@@ -62,6 +62,7 @@ class MasyarakatController extends GetxController {
             "nama": nama,
             "username": username,
             "telp": telp,
+            "level": level,
           }));
       return response;
     } catch (e) {
@@ -69,9 +70,9 @@ class MasyarakatController extends GetxController {
     }
   }
 
-  Future<http.Response> deleteMasyarakat(String nik) async {
+  Future<http.Response> deletePetugas(int idPetugas) async {
     try {
-      final response = await http.delete(Uri.parse("$uri/masyarakat/$nik"));
+      final response = await http.delete(Uri.parse("$uri/petugas/$idPetugas"));
       return response;
     } catch (e) {
       throw Exception(e);

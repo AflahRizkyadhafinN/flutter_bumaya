@@ -2,7 +2,7 @@ import 'package:aplikasi_pelaporan/controllers/masyarakatController.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../components/inputValue.dart';
+import '../../components/inputValue.dart';
 
 class ListMasyarakatScreen extends StatelessWidget {
   const ListMasyarakatScreen({super.key});
@@ -11,13 +11,12 @@ class ListMasyarakatScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final masyarakatController = Get.put(MasyarakatController());
     final data = masyarakatController.list;
-    RxMap mapValue =
-        {"nama": "", "username": "", "password": "", "telp": ""}.obs;
     return Scaffold(
+      appBar: AppBar(),
       body: Column(
         children: [
           SizedBox(
-            height: MediaQuery.sizeOf(context).height - 30,
+            height: MediaQuery.sizeOf(context).height - 84,
             child: Obx(
               () => ListView.builder(
                 itemCount: data.length,
@@ -35,40 +34,53 @@ class ListMasyarakatScreen extends StatelessWidget {
                           Text(data[index].telp),
                         ],
                       ),
+                      ElevatedButton(
+                          onPressed: () {
+                            Get.toNamed("/pengaduan",
+                                arguments: data[index].nik);
+                          },
+                          child: Text("Pengaduan")),
                       Column(
                         children: [
                           IconButton(
                               onPressed: () {
+                                TextEditingController _nama =
+                                    TextEditingController(
+                                        text: data[index].nama);
+                                TextEditingController _username =
+                                    TextEditingController(
+                                        text: data[index].username);
+                                TextEditingController _telp =
+                                    TextEditingController(
+                                        text: data[index].telp);
+
                                 Get.defaultDialog(
                                     title: "Update data",
                                     content: Column(
                                       children: [
-                                        Obx(() => Text(mapValue.toString())),
                                         InputValue(
                                           label: "nama",
-                                          onSubmitted: (value) =>
-                                              mapValue["nama"] = value,
+                                          maxLines: 1,
+                                          controller: _nama,
                                         ),
                                         InputValue(
                                           label: "username",
-                                          onSubmitted: (value) =>
-                                              mapValue["username"] = value,
-                                        ),
-                                        InputValue(
-                                          label: "password",
-                                          onSubmitted: (value) =>
-                                              mapValue["password"] = value,
+                                          maxLines: 1,
+                                          controller: _username,
                                         ),
                                         InputValue(
                                           label: "telp",
-                                          onSubmitted: (value) =>
-                                              mapValue["telp"] = value,
+                                          maxLines: 1,
+                                          controller: _telp,
                                         ),
                                         ElevatedButton(
                                             onPressed: () {
                                               masyarakatController
                                                   .updateMasyarakat(
-                                                      data[index].nik, mapValue)
+                                                      data[index].nik,
+                                                      _nama.text,
+                                                      _username.text,
+                                                      _telp.text)
                                                   .then((value) {
                                                 if (value.statusCode == 200) {
                                                   Get.snackbar("Status",
@@ -106,7 +118,7 @@ class ListMasyarakatScreen extends StatelessWidget {
           ),
           ElevatedButton(
               onPressed: () {
-                Get.toNamed("/tambah");
+                Get.toNamed("/masyarakat/tambah");
               },
               child: const Text("Tambah Data"))
         ],
