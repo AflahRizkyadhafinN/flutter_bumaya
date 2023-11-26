@@ -7,7 +7,7 @@ import 'package:http/http.dart' as http;
 const uri = "http://localhost:5000";
 
 class PengaduanController extends GetxController {
-  List list = [].obs;
+  RxList list = [].obs;
   @override
   Future<void> onInit() async {
     super.onInit();
@@ -30,8 +30,8 @@ class PengaduanController extends GetxController {
   }
 
   Future<void> postPengaduan(
-      String nik, Map imagePick, String isiLaporan) async {
-    print(nik);
+      String masyarakatNik, Map imagePick, String isiLaporan) async {
+    print(masyarakatNik);
     try {
       final request =
           http.MultipartRequest("POST", Uri.parse("$uri/pengaduan"));
@@ -39,7 +39,35 @@ class PengaduanController extends GetxController {
           ? await http.MultipartFile.fromPath("foto", imagePick['files'])
           : await http.MultipartFile.fromBytes("foto", imagePick['files'],
               filename: imagePick["filename"]));
-      request.fields.addAll({"nik": nik, "isi_laporan": isiLaporan});
+      request.fields
+          .addAll({"masyarakatNik": masyarakatNik, "isi_laporan": isiLaporan});
+      final response = await request.send();
+      print(response.statusCode);
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
+
+  Future<void> deletePengaduan(int idPengaduan) async {
+    try {
+      final request =
+          await http.delete(Uri.parse("$uri/pengaduan/$idPengaduan"));
+      print(request.statusCode);
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
+
+  Future<void> updatePengaduan(
+      int idPengaduan, Map imagePick, String isiLaporan) async {
+    try {
+      final request = await http.MultipartRequest(
+          "PATCH", Uri.parse("$uri/pengaduan/$idPengaduan"));
+      request.files.add(imagePick["device"] == "android"
+          ? await http.MultipartFile.fromPath("foto", imagePick['files'])
+          : await http.MultipartFile.fromBytes("foto", imagePick['files'],
+              filename: imagePick["filename"]));
+      request.fields.addAll({"isi_laporan": isiLaporan});
       final response = await request.send();
       print(response.statusCode);
     } catch (e) {

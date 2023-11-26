@@ -36,6 +36,12 @@ class ListPetugasScreen extends StatelessWidget {
                           Text(data[index].level),
                         ],
                       ),
+                      ElevatedButton(
+                          onPressed: () {
+                            Get.toNamed("/tanggapan",
+                                arguments: data[index].idPetugas);
+                          },
+                          child: Text("tanggapan")),
                       Column(
                         children: [
                           IconButton(

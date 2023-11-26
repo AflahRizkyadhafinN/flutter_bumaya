@@ -11,7 +11,7 @@ class BuatPengaduanScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final pengaduanController = Get.put(PengaduanController());
+    PengaduanController pengaduanController = Get.find();
     final nik = Get.arguments;
     RxMap imagePick = {}.obs;
     TextEditingController isiLaporan = TextEditingController();
@@ -54,11 +54,14 @@ class BuatPengaduanScreen extends StatelessWidget {
               ? imagePick["device"] == "web"
                   ? Image.memory(imagePick["files"])
                   : Image.file(File(imagePick["files"]))
-              : Text("ImagePick kosong")),
+              : Text("Gambar belum dipilih kosong")),
           ElevatedButton(
               onPressed: () {
-                pengaduanController.postPengaduan(
-                    nik, imagePick, isiLaporan.text);
+                // Get.back();
+                pengaduanController
+                    .postPengaduan(nik, imagePick, isiLaporan.text)
+                    .then((value) =>
+                        {pengaduanController.getPengaduan(), Get.back()});
               },
               child: Text("Kirim pengaduan"))
         ],

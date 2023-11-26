@@ -36,8 +36,10 @@ class ListMasyarakatScreen extends StatelessWidget {
                       ),
                       ElevatedButton(
                           onPressed: () {
-                            Get.toNamed("/pengaduan",
-                                arguments: data[index].nik);
+                            Get.toNamed(
+                              "/pengaduan",
+                              arguments: data[index].nik,
+                            );
                           },
                           child: Text("Pengaduan")),
                       Column(

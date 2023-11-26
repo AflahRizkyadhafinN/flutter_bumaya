@@ -5,6 +5,8 @@ import 'package:aplikasi_pelaporan/pages/pengaduan/buatPengaduan.dart';
 import 'package:aplikasi_pelaporan/pages/pengaduan/listPengaduan.dart';
 import 'package:aplikasi_pelaporan/pages/petugas/listPetugas.dart';
 import 'package:aplikasi_pelaporan/pages/petugas/tambahPetugas.dart';
+import 'package:aplikasi_pelaporan/pages/tanggapan/buatTanggapan.dart';
+import 'package:aplikasi_pelaporan/pages/tanggapan/listTanggapan.dart';
 import 'package:get/get.dart';
 
 List<GetPage> router = [
@@ -22,4 +24,8 @@ List<GetPage> router = [
   // Pengaduan
   GetPage(name: "/pengaduan", page: () => const ListPengaduanScreen()),
   GetPage(name: "/pengaduan/tambah", page: () => const BuatPengaduanScreen()),
+
+  // Tanggapan
+  GetPage(name: "/tanggapan", page: () => const ListTanggapanScreen()),
+  GetPage(name: "/tanggapan/tambah", page: () => const BuatTanggapanScreen()),
 ];
